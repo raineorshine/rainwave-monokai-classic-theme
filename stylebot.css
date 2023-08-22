@@ -1,3 +1,13 @@
+:root {
+  /* monokai orange */
+  /* --orange: #DF933E; */
+  /* original rainwave orange */
+  --orange: #f7941e;
+  --green: #B3E053;
+  --dark-green: #80ac20;
+  /* --purple: #9643c6 */
+}
+
 /* Increase click area of PREVIOUSLY PLAYED link */
 .history_header_header {
   /* set to inline-block so we can increase the height */
@@ -16,6 +26,8 @@ body.desktop div.history_header:hover {
   background-color: hsl(204deg 77% 40% / 50%);
 }
 
+/* all the blue stuff is now greens stuff */
+.header,
 .menu,
 .menu_wrapper, 
 .menu_dropdown,
@@ -25,23 +37,64 @@ body.desktop div.history_header:hover {
 .background, 
 .requester, 
 .request_indicator, 
-div.timeline div.song.voting_enabled:not(.voting_registered):not(.voting_clicked):hover 
 div.vote_button {
-  background: #B3E053;
+  background: var(--green);
 }
 
 .rating {
-  color: #B3E053;
+  color: var(--green);
 }
 
+/* rotate the color of the rating gradient since we cannot change the url */
 .rating.rating_user, .rating.ratable:hover {
-  filter: hue-rotate(230deg) brightness(1.5) saturate(0.7);
+  filter: hue-rotate(230deg) brightness(1.5) saturate(0.7) !important
 }
 
-.menu li:not(.requests_link) a {
+/* header links */
+.station_name,
+.menu /* li:not(.requests_link)*/ a,
+.requester a,
+.vote_button {
   color: #333;
 }
 
+/* header link hover */
+body.desktop .header a:hover {
+  color: #666;
+}
+
+/* requests on cooldown */
+.menu .requests_link a.warning {
+  background-color: var(--orange);
+}
+
+/* play icon */
+#r4_audio_player.playing .audio_icon_play *,
+#r4_audio_player.playing .audio_icon_play {
+fill: var(--orange);
+}
+
+/* other playback icons */
+div.menu_wrapper svg * {
+  fill: #333;
+}
+
+/* hamburger icon */
+.hamburger_icon, .hamburger_icon:before {
+  border-color: #333;
+}
+
 .m3u a:not(:last-child) {
-  border-bottom: solid 1px #80ac20;
+  border-bottom: solid 1px var(--dark-green);
+}
+
+/* song hover */
+.song.voting_enabled:not(.voting_registered):not(.voting_clicked):hover {
+  background-color: #322b42;
+}
+
+/* song voted */
+.song.voting_registered {
+  /* Dark egglant: #191228 */
+  background-color: #272728;
 }
