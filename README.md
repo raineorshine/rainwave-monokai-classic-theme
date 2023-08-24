@@ -8,13 +8,17 @@ Theme for [rainwave](https://github.com/rmcauley/rainwave) based on [Monokai Cla
 
 ```css
 :root {
-  /* monokai orange */
-  /* --orange: #DF933E; */
+  /* --monokai-orange: #EF9C40; */
   /* original rainwave orange */
   --orange: #f7941e;
-  --green: #B3E053;
+  --green: #B1DD52;
+  --cyan: #84D6EC;
+  --red: #E03F71;
+  --yellow: #E4DB82;
   --dark-green: #80ac20;
-  /* --purple: #9643c6 */
+  --dark-eggplant: #322b42;
+  --purple: #9643c6;
+  --gray: #6E7067;
 }
 
 /* Increase click area of PREVIOUSLY PLAYED link */
@@ -31,8 +35,8 @@ Theme for [rainwave](https://github.com/rmcauley/rainwave) based on [Monokai Cla
   padding-top: 9px;
 }
 
-body.desktop div.history_header:hover {
-  background-color: hsl(204deg 77% 40% / 50%);
+.history_header:hover {
+  background-color: var(--dark-eggplant);
 }
 
 /* all the blue stuff is now greens stuff */
@@ -50,19 +54,12 @@ div.vote_button {
   background: var(--green);
 }
 
-.rating {
-  color: var(--green);
-}
-
-/* rotate the color of the rating gradient since we cannot change the url */
-.rating.rating_user, .rating.ratable:hover {
-  filter: hue-rotate(230deg) brightness(1.5) saturate(0.7) !important
-}
-
 /* header links */
 .station_name,
 .menu /* li:not(.requests_link)*/ a,
+#r4_audio_player a,
 .requester a,
+.request_indicator,
 .vote_button {
   color: #333;
 }
@@ -72,15 +69,24 @@ body.desktop .header a:hover {
   color: #666;
 }
 
-/* requests on cooldown */
+/* invert cooldown warning: invisible on cooldown and highlighted when not on cooldown */
+.menu .requests_link a {
+  /* worse contrast than default... */
+  background-color: var(--cyan);
+}
 .menu .requests_link a.warning {
-  background-color: var(--orange);
+  background-color: transparent;
 }
 
 /* play icon */
 #r4_audio_player.playing .audio_icon_play *,
 #r4_audio_player.playing .audio_icon_play {
 fill: var(--orange);
+}
+
+/* playback line indicator */
+#r4_audio_player div.tuned_in_indicator {
+  background-color: #333;
 }
 
 /* other playback icons */
@@ -93,13 +99,24 @@ div.menu_wrapper svg * {
   border-color: #333;
 }
 
+/* playback menu dividers */
 .m3u a:not(:last-child) {
-  border-bottom: solid 1px var(--dark-green);
+  border-bottom: none;
+}
+
+/* hamburger menu dropdown doesn't need dividers */
+.menu_dropdown div.menu_group {
+  border-top: none;
 }
 
 /* song hover */
 .song.voting_enabled:not(.voting_registered):not(.voting_clicked):hover {
-  background-color: #322b42;
+  background-color: var(--dark-eggplant);
+}
+
+/* song link hover */
+body .song a:hover {
+  color: var(--cyan);
 }
 
 /* song voted */
@@ -108,4 +125,12 @@ div.menu_wrapper svg * {
   background-color: #272728;
 }
 
+.rating {
+  color: var(--green);
+}
+
+/* rotate the color of the rating gradient since we cannot change the url */
+.rating.rating_user, .rating.ratable:hover {
+  filter: hue-rotate(230deg) brightness(1.5) saturate(0.7) !important
+}
 ```
