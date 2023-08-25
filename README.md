@@ -1,10 +1,14 @@
 Theme for [rainwave](https://github.com/rmcauley/rainwave) based on [Monokai Classic](https://marketplace.visualstudio.com/items?itemName=monokai.theme-monokai-pro-vscode).
 
-## Usage
+<img width="753" alt="image" src="https://github.com/raineorshine/rainwave-monokai-classic-theme/assets/750276/c2b194cd-52c4-4f02-b41e-a654db1c17ea">
 
-1. Install the [stylebot](https://stylebot.dev/) browser extension.
+## Setup
+
+1. Install the [Stylebot](https://stylebot.dev/) browser extension.
 2. Click the Stylebot extension icon and choose "Open Stylebot".
-3. Copy the following styles:
+3. Copy and paste the following styles into Stylebot:
+
+<!-- TEMPLATE START: stylebot.css -->
 
 ```css
 :root {
@@ -136,3 +140,5 @@ body .song a:hover {
   filter: hue-rotate(230deg) brightness(1.5) saturate(0.7) !important;
 }
 ```
+
+<!-- TEMPLATE END: stylebot.css -->

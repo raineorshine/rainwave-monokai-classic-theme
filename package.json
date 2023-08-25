@@ -2,10 +2,14 @@
   "name": "rainwave-monokai-classic-theme",
   "description": "Theme for rainwave based on Monokai Classic.",
   "version": "0.0.0",
+  "private": true,
   "author": {
     "name": "Raine Revere",
     "email": "raine@cybersemics.org",
     "url": "https://github.com/raineorshine"
+  },
+  "engines": {
+    "node": ">=14"
   },
   "keywords": [
     "rainwave"
@@ -14,6 +18,9 @@
   "license": "MIT",
   "repository": "https://github.com/raineorshine/rainwave-monokai-classic-theme",
   "type": "module",
+  "scripts": {
+    "build": "node inject.js README.md"
+  },
   "devDependencies": {
     "prettier": "^3.0.2"
   }
