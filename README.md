@@ -11,14 +11,14 @@ Theme for [rainwave](https://github.com/rmcauley/rainwave) based on [Monokai Cla
   /* --monokai-orange: #EF9C40; */
   /* original rainwave orange */
   --orange: #f7941e;
-  --green: #B1DD52;
-  --cyan: #84D6EC;
-  --red: #E03F71;
-  --yellow: #E4DB82;
+  --green: #b1dd52;
+  --cyan: #84d6ec;
+  --red: #e03f71;
+  --yellow: #e4db82;
   --dark-green: #80ac20;
   --dark-eggplant: #322b42;
   --purple: #9643c6;
-  --gray: #6E7067;
+  --gray: #6e7067;
 }
 
 /* Increase click area of PREVIOUSLY PLAYED link */
@@ -42,14 +42,14 @@ Theme for [rainwave](https://github.com/rmcauley/rainwave) based on [Monokai Cla
 /* all the blue stuff is now greens stuff */
 .header,
 .menu,
-.menu_wrapper, 
+.menu_wrapper,
 .menu_dropdown,
 .menu_dropdown a,
 .hamburger_icon,
-#station_select a.station.selected_station, 
-.background, 
-.requester, 
-.request_indicator, 
+#station_select a.station.selected_station,
+.background,
+.requester,
+.request_indicator,
 div.vote_button {
   background: var(--green);
 }
@@ -81,7 +81,7 @@ body.desktop .header a:hover {
 /* play icon */
 #r4_audio_player.playing .audio_icon_play *,
 #r4_audio_player.playing .audio_icon_play {
-fill: var(--orange);
+  fill: var(--orange);
 }
 
 /* playback line indicator */
@@ -95,7 +95,8 @@ div.menu_wrapper svg * {
 }
 
 /* hamburger icon */
-.hamburger_icon, .hamburger_icon:before {
+.hamburger_icon,
+.hamburger_icon:before {
   border-color: #333;
 }
 
@@ -130,7 +131,8 @@ body .song a:hover {
 }
 
 /* rotate the color of the rating gradient since we cannot change the url */
-.rating.rating_user, .rating.ratable:hover {
-  filter: hue-rotate(230deg) brightness(1.5) saturate(0.7) !important
+.rating.rating_user,
+.rating.ratable:hover {
+  filter: hue-rotate(230deg) brightness(1.5) saturate(0.7) !important;
 }
 ```
