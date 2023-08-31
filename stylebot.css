@@ -9,18 +9,40 @@
   --yellow: #e3da82;
   --dark-green: #80ac20;
   --dark-eggplant: #322b42;
+  --dark-red: #660000;
   --mid-green: #98c439;
   --purple: #9643c6;
   --gray: #6e7067;
   --greenish-gray: #acad94;
   --filter-green: hue-rotate(230deg) brightness(1.5) saturate(0.7);
+  --filter-ungreen: hue-rotate(-230deg) brightness(0.75) saturate(calc(1 / 0.7));
+}
+
+/* scrollbar */
+/* hide the scrollbar so that song hover extends all the way to the edge of the screen. */
+/* ::-webkit-scrollbar is hard-coded in a style tag and there is seemingly no way to reset it to the browser's default appearance of appearing as an overlay only during scroll. The values initial and unset do not work. */
+.scrollblock::-webkit-scrollbar {
+  display: none;
 }
 
 /**********************************
  * HEADER
  **********************************/
 
+/* message (e.g. connection issues) */
+.timeline_message.timeline_message {
+  background-color: var(--dark-eggplant);
+  border-color: #444;
+}
+
+/* error */
+.error_tooltip {
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(var(--red)), to(var(--dark-red)));
+  border-color: var(--red);
+}
+
 div.header {
+  background-color: var(--mid-green);
 }
 
 /* station select */
@@ -49,13 +71,14 @@ body.desktop #station_select a.station:hover {
   /* set to inline-block so we can increase the height */
   display: inline-block;
   height: 25px;
-  margin-top: 12px;
+  margin-top: 10px;
 }
 
 /* shift container up to extend top click area */
 .history_header {
-  margin-top: -18px;
-  padding-top: 9px;
+  margin-top: -19px;
+  padding-top: 10px;
+  padding-bottom: 2px;
 }
 
 .history_header:hover {
@@ -96,10 +119,13 @@ body.desktop .requester a:hover {
 #r4_audio_player.playing .audio_icon_play *,
 #r4_audio_player.playing .audio_icon_play {
   fill: var(--orange);
+  /* use a light drop shadow to increase the contrast without deviating from the theme color */
+  filter: drop-shadow(0 0px 1px #ffffff55);
 }
 
 /* playback line indicator */
-#r4_audio_player div.tuned_in_indicator {
+.tuned_in_indicator,
+.load_indicator {
   background-color: #333;
 }
 
@@ -142,6 +168,18 @@ body .album_list .item.cool.rating_user {
   background-color: var(--dark-eggplant);
 }
 
+xxxbody .album_list .item.cool.rating_user::before {
+  background-color: var(--dark-eggplant);
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  /* match height of div.list div.item.cool */
+  height: 26px;
+  z-index: -1;
+  filter: var(--filter-ungreen);
+}
+
 /**********************************
  * SONGS
  **********************************/
@@ -173,13 +211,14 @@ body .song .song_content a:hover {
 }
 
 /* favorite album */
-.song .song_content.album_fave_highlight div.album a {
+.song .album_fave_highlight div.album a,
+.song .song_fave_highlight div.title {
   color: var(--yellow);
 }
 
 /* favorite heart */
 .fave_solid {
-  filter: var(--filter-green);
+  filter: hue-rotate(-20deg) saturate(1.2);
 }
 
 /* rating */
