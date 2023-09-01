@@ -1,6 +1,6 @@
 Theme for [rainwave](https://github.com/rmcauley/rainwave) based on [Monokai Classic](https://marketplace.visualstudio.com/items?itemName=monokai.theme-monokai-pro-vscode).
 
-<img width="753" alt="image" src="https://github.com/raineorshine/rainwave-monokai-classic-theme/assets/750276/c2b194cd-52c4-4f02-b41e-a654db1c17ea">
+<img width="754" alt="image" src="https://github.com/raineorshine/rainwave-monokai-classic-theme/assets/750276/5ff5670f-cfd3-4008-b51d-044b21251e13">
 
 ## Setup
 
