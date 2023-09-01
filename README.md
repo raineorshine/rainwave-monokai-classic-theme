@@ -24,11 +24,15 @@ Theme for [rainwave](https://github.com/rmcauley/rainwave) based on [Monokai Cla
   --dark-eggplant: #322b42;
   --dark-red: #660000;
   --mid-green: #98c439;
+  --mid-purple: #643784;
   --purple: #9643c6;
   --gray: #6e7067;
   --greenish-gray: #acad94;
   --filter-green: hue-rotate(230deg) brightness(1.5) saturate(0.7);
   --filter-ungreen: hue-rotate(-230deg) brightness(0.75) saturate(calc(1 / 0.7));
+  --ungreen-dark-eggplant: #2a190a;
+  --ungreen-mid-purple: #502805;
+  --ungreen-purple: #684700;
 }
 
 /* scrollbar */
@@ -176,21 +180,63 @@ body.search_open .menu .search_link a {
   border-top: none;
 }
 
-/* Albums */
-body .album_list .item.cool.rating_user {
+/**********************************
+ * ALBUMS
+ **********************************/
+
+.album_list .item:not(.album_fave_highlight) {
+  filter: var(--filter-green);
+}
+
+.album_list .item.cool {
+  background-color: #202020;
+  /* background-color: transparent; */
+}
+.album_list .item.cool.album_fave_highlight,
+.album_has_cooldown,
+.album_all_cooldown {
   background-color: var(--dark-eggplant);
 }
 
-xxxbody .album_list .item.cool.rating_user::before {
+div.list div.item.open {
+  background-color: var(--purple);
+}
+/* undo filter on album_list */
+div.list.album_list div.item.open {
+  background-color: var(--ungreen-purple);
+}
+.list div.item.open.album_fave_highlight {
+  background-color: var(--purple);
+}
+
+.list .item:hover {
+  background-color: var(--mid-purple);
+  border-color: #444;
+  color: white;
+}
+.album_list .item:hover {
+  background-color: var(--ungreen-mid-purple);
+}
+
+/* album detail */
+.album_list .item.album_fave_highlight:hover {
+  background-color: var(--mid-purple);
+}
+.chart_ratings {
+  filter: var(--filter-green);
+}
+.chart_label {
+  color: #000;
+}
+.row:hover,
+/* original style of song_fave_highlight has !important, so increase the specificity to overwrite it */
+body.desktop div.row.song_fave_highlight:hover {
   background-color: var(--dark-eggplant);
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  /* match height of div.list div.item.cool */
-  height: 26px;
-  z-index: -1;
-  filter: var(--filter-ungreen);
+  border-color: #444;
+}
+.row.cool {
+  background-color: #333;
+  border-color: transparent;
 }
 
 /**********************************
@@ -224,8 +270,9 @@ body .song .song_content a:hover {
 }
 
 /* favorite album */
-.song .album_fave_highlight div.album a,
-.song .song_fave_highlight div.title {
+/* applies to both playing songs and library songs */
+.album_fave_highlight div.album a,
+.song_fave_highlight div.title {
   color: var(--yellow);
 }
 
@@ -239,6 +286,10 @@ body .song .song_content a:hover {
 .rating.rating_user,
 .rating.ratable:hover {
   filter: var(--filter-green);
+}
+
+.song_fave_highlight .rating {
+  filter: none;
 }
 ```
 
