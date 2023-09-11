@@ -116,7 +116,7 @@ body.desktop #station_select a.station:hover {
 /* link hover */
 body.desktop .header a:hover,
 body.desktop .requester a:hover {
-  color: #777;
+  color: black;
 }
 
 /* play icon */
@@ -167,9 +167,27 @@ body.search_open .menu .search_link a {
   border-top: none;
 }
 
+/* Libary panel header hover (Albums, Artists, Categories, Request Line) */
+.panel_header li:hover {
+  color: #ccc;
+}
+
+/* Since stylebot adds !important to the panel_header hover, it will take precedence over the selected tab, so we need to reset it to disable the hover style for selected tabs. */
+body.playlist_artist .panel_header .artist_tab,
+body.playlist_group .panel_header .group_tab,
+body.playlist_album .panel_header .album_tab,
+body.playlist_request_line .panel_header .listener_tab {
+  color: white;
+}
+
 /**********************************
  * ALBUMS
  **********************************/
+
+/* loading */
+.searchlist_loading_bar {
+  background-color: var(--dark-eggplant);
+}
 
 .album_list .item:not(.album_fave_highlight) {
   filter: var(--filter-green);
@@ -227,6 +245,63 @@ body.desktop div.row.song_fave_highlight:hover {
 }
 
 /**********************************
+ * SEARCH
+ **********************************/
+
+.search_panel button {
+  background-color: var(--purple);
+}
+
+.search_box:focus-visible {
+  outline-color: var(--purple);
+}
+
+/**********************************
+ * PROFILE
+ **********************************/
+
+a.obvious,
+a:visited.obvious {
+  color: var(--cyan);
+}
+
+/**********************************
+ * SETTINGS
+ **********************************/
+
+/* "x" close link */
+.modal_container .modal_close img {
+  filter: brightness(0.22);
+}
+
+.setting_subheader {
+  color: var(--orange);
+  border-color: var(--orange);
+}
+
+.bkg,
+.bottom_border {
+  background-color: var(--green);
+  color: black;
+}
+
+.multi_select span,
+.yes_no_yes,
+.yes_no_no {
+  border-color: var(--purple);
+}
+
+.yes_no_bar,
+.floating_highlight {
+  background-color: var(--purple);
+}
+
+.setting_group:hover {
+  background-color: var(--dark-eggplant);
+  border-color: var(--mid-purple);
+}
+
+/**********************************
  * SONGS
  **********************************/
 
@@ -266,6 +341,11 @@ body .song .song_content a:hover {
 /* favorite heart */
 .fave_solid {
   filter: hue-rotate(-20deg) saturate(1.2);
+}
+
+/* external link icon */
+a.url {
+  filter: hue-rotate(30deg);
 }
 
 /* rating */
