@@ -17,12 +17,13 @@ Theme for [rainwave](https://github.com/rmcauley/rainwave) based on [Monokai Cla
   --orange: #f7941e;
   --green: #b1dd52;
   --cyan: #84d6ec;
-  --dark-cyan: #1985a3;
   --red: #e03f71;
   --yellow: #e3da82;
+  --dark-cyan: #1985a3;
   --dark-green: #80ac20;
   --dark-eggplant: #322b42;
   --dark-red: #660000;
+  --extra-dark-red: #300;
   --mid-green: #98c439;
   --mid-purple: #643784;
   --purple: #9643c6;
@@ -129,7 +130,7 @@ body.desktop #station_select a.station:hover {
 /* link hover */
 body.desktop .header a:hover,
 body.desktop .requester a:hover {
-  color: #777;
+  color: black;
 }
 
 /* play icon */
@@ -157,7 +158,7 @@ div.menu_wrapper svg * {
 }
 
 /* selected right link */
-body.requests .menu .requests_link a,
+body.requests .menu .requests_link a:not(.warning),
 body.playlist .menu .playlist_link a,
 body.search_open .menu .search_link a {
   background: var(--mid-green);
@@ -165,8 +166,11 @@ body.search_open .menu .search_link a {
 
 /* requests on cooldown */
 .menu .requests_link a.warning {
-  background-color: var(--purple);
-  color: #ddd;
+  background-color: var(--dark-red);
+  color: #dedede;
+}
+.menu .requests_link a.warning:hover {
+  color: white;
 }
 
 /* hamburger icon */
@@ -180,9 +184,39 @@ body.search_open .menu .search_link a {
   border-top: none;
 }
 
+/* Libary panel header hover (Albums, Artists, Categories, Request Line) */
+.panel_header li:hover {
+  color: #ccc;
+}
+
+/* Since stylebot adds !important to the panel_header hover, it will take precedence over the selected tab, so we need to reset it to disable the hover style for selected tabs. */
+body.playlist_artist .panel_header .artist_tab,
+body.playlist_group .panel_header .group_tab,
+body.playlist_album .panel_header .album_tab,
+body.playlist_request_line .panel_header .listener_tab {
+  color: white;
+}
+
+/**********************************
+ * REQUESTS
+ **********************************/
+
+.songlist_panel.warning {
+  background-color: var(--extra-dark-red);
+}
+
+.song.cool {
+  background-color: var(--dark-eggplant);
+}
+
 /**********************************
  * ALBUMS
  **********************************/
+
+/* loading */
+.searchlist_loading_bar {
+  background-color: var(--dark-eggplant);
+}
 
 .album_list .item:not(.album_fave_highlight) {
   filter: var(--filter-green);
@@ -240,6 +274,72 @@ body.desktop div.row.song_fave_highlight:hover {
 }
 
 /**********************************
+ * SEARCH
+ **********************************/
+
+.search_panel button {
+  background-color: var(--purple);
+}
+
+.search_box:focus-visible {
+  outline-color: var(--purple);
+}
+
+/**********************************
+ * PROFILE
+ **********************************/
+
+a.obvious,
+a:visited.obvious {
+  color: #999;
+}
+body a.obvious.obvious.obvious:hover {
+  color: var(--green);
+}
+
+/* Donor */
+span[style*='color: #FFFF00'] {
+  color: var(--yellow);
+  font-weight: bold;
+}
+
+/**********************************
+ * SETTINGS
+ **********************************/
+
+/* "x" close link */
+.modal_container .modal_close img {
+  filter: brightness(0.22);
+}
+
+.setting_subheader {
+  color: var(--orange);
+  border-color: var(--orange);
+}
+
+.bkg,
+.bottom_border {
+  background-color: var(--green);
+  color: black;
+}
+
+.multi_select span,
+.yes_no_yes,
+.yes_no_no {
+  border-color: var(--purple);
+}
+
+.yes_no_bar,
+.floating_highlight {
+  background-color: var(--purple);
+}
+
+.setting_group:hover {
+  background-color: var(--dark-eggplant);
+  border-color: var(--mid-purple);
+}
+
+/**********************************
  * SONGS
  **********************************/
 
@@ -261,7 +361,7 @@ div.song.voting_registered div.vote_button {
 
 /* song link hover */
 body .song .song_content a:hover {
-  color: var(--cyan);
+  color: var(--green);
 }
 
 /* song voted */
@@ -281,6 +381,11 @@ body .song .song_content a:hover {
   filter: hue-rotate(-20deg) saturate(1.2);
 }
 
+/* external link icon */
+a.url {
+  filter: hue-rotate(30deg);
+}
+
 /* rating */
 /* rotate the color of the rating gradient since we cannot change the url */
 .rating.rating_user,
@@ -290,6 +395,44 @@ body .song .song_content a:hover {
 
 .song_fave_highlight .rating {
   filter: none;
+}
+
+/* Lost song */
+/* Shrink image. We cannot use transform: scale() since it already has a transform. */
+.song_lost .art_container {
+  height: 75px;
+  width: 75px;
+}
+
+/* Lost songs (only visible when "Show Songs That List in Elections" setting is enabled) */
+/* When opacity is set, it means that the image has been expanded, so we do not want to dim or shrink it. */
+.song_lost:not([style*='opacity']) {
+  /* Dim further to distinguish from active songs. Original: 0.6. */
+  opacity: 0.3;
+  height: 75px;
+}
+
+/* Lost songs */
+/* Since the lost songs are in source order, we can only identify the second lost song by its translateY. */
+.song_lost[style*='translateY(140px)'] {
+  margin-top: 5px;
+}
+.song_lost[style*='translateY(241px)'] {
+  margin-top: -18px;
+}
+
+/* Coming up - Vote Now (1) */
+/* Shift up to compensate for smaller lost songs. Since .song_lost is not an ancestor, we have to select on the specific amount that the timelines are translated when lost songs are enabled. */
+.timeline_event.sched_next[style*='translateY(431px);'] {
+  transform: translateY(386px);
+}
+.timeline_event.sched_next[style*='translateY(778px);'] {
+  transform: translateY(733px);
+}
+
+/* Coming Up - Vote Now (2) */
+.progress[style*='translateY(354px);'] {
+  transform: translateY(310px);
 }
 ```
 

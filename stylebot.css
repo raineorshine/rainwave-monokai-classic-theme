@@ -4,12 +4,13 @@
   --orange: #f7941e;
   --green: #b1dd52;
   --cyan: #84d6ec;
-  --dark-cyan: #1985a3;
   --red: #e03f71;
   --yellow: #e3da82;
+  --dark-cyan: #1985a3;
   --dark-green: #80ac20;
   --dark-eggplant: #322b42;
   --dark-red: #660000;
+  --extra-dark-red: #300;
   --mid-green: #98c439;
   --mid-purple: #643784;
   --purple: #9643c6;
@@ -144,7 +145,7 @@ div.menu_wrapper svg * {
 }
 
 /* selected right link */
-body.requests .menu .requests_link a,
+body.requests .menu .requests_link a:not(.warning),
 body.playlist .menu .playlist_link a,
 body.search_open .menu .search_link a {
   background: var(--mid-green);
@@ -152,8 +153,11 @@ body.search_open .menu .search_link a {
 
 /* requests on cooldown */
 .menu .requests_link a.warning {
-  background-color: var(--purple);
-  color: #ddd;
+  background-color: var(--dark-red);
+  color: #dedede;
+}
+.menu .requests_link a.warning:hover {
+  color: white;
 }
 
 /* hamburger icon */
@@ -178,6 +182,18 @@ body.playlist_group .panel_header .group_tab,
 body.playlist_album .panel_header .album_tab,
 body.playlist_request_line .panel_header .listener_tab {
   color: white;
+}
+
+/**********************************
+ * REQUESTS
+ **********************************/
+
+.songlist_panel.warning {
+  background-color: var(--extra-dark-red);
+}
+
+.song.cool {
+  background-color: var(--dark-eggplant);
 }
 
 /**********************************
@@ -262,7 +278,16 @@ body.desktop div.row.song_fave_highlight:hover {
 
 a.obvious,
 a:visited.obvious {
-  color: var(--cyan);
+  color: #999;
+}
+body a.obvious.obvious.obvious:hover {
+  color: var(--green);
+}
+
+/* Donor */
+span[style*='color: #FFFF00'] {
+  color: var(--yellow);
+  font-weight: bold;
 }
 
 /**********************************
@@ -323,7 +348,7 @@ div.song.voting_registered div.vote_button {
 
 /* song link hover */
 body .song .song_content a:hover {
-  color: var(--cyan);
+  color: var(--green);
 }
 
 /* song voted */
@@ -374,10 +399,13 @@ a.url {
   height: 75px;
 }
 
-/* Lost song (#2) */
+/* Lost songs */
 /* Since the lost songs are in source order, we can only identify the second lost song by its translateY. */
+.song_lost[style*='translateY(140px)'] {
+  margin-top: 5px;
+}
 .song_lost[style*='translateY(241px)'] {
-  margin-top: -2.25%;
+  margin-top: -18px;
 }
 
 /* Coming up - Vote Now (1) */
@@ -391,5 +419,5 @@ a.url {
 
 /* Coming Up - Vote Now (2) */
 .progress[style*='translateY(354px);'] {
-  transform: translateY(305px);
+  transform: translateY(310px);
 }
