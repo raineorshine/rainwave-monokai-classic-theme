@@ -358,3 +358,38 @@ a.url {
 .song_fave_highlight .rating {
   filter: none;
 }
+
+/* Lost song */
+/* Shrink image. We cannot use transform: scale() since it already has a transform. */
+.song_lost .art_container {
+  height: 75px;
+  width: 75px;
+}
+
+/* Lost songs (only visible when "Show Songs That List in Elections" setting is enabled) */
+/* When opacity is set, it means that the image has been expanded, so we do not want to dim or shrink it. */
+.song_lost:not([style*='opacity']) {
+  /* Dim further to distinguish from active songs. Original: 0.6. */
+  opacity: 0.3;
+  height: 75px;
+}
+
+/* Lost song (#2) */
+/* Since the lost songs are in source order, we can only identify the second lost song by its translateY. */
+.song_lost[style*='translateY(241px)'] {
+  margin-top: -2.25%;
+}
+
+/* Coming up - Vote Now (1) */
+/* Shift up to compensate for smaller lost songs. Since .song_lost is not an ancestor, we have to select on the specific amount that the timelines are translated when lost songs are enabled. */
+.timeline_event.sched_next[style*='translateY(431px);'] {
+  transform: translateY(386px);
+}
+.timeline_event.sched_next[style*='translateY(778px);'] {
+  transform: translateY(733px);
+}
+
+/* Coming Up - Vote Now (2) */
+.progress[style*='translateY(354px);'] {
+  transform: translateY(305px);
+}
