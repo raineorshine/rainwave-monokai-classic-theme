@@ -24,6 +24,7 @@ Theme for [rainwave](https://github.com/rmcauley/rainwave) based on [Monokai Cla
   --dark-eggplant: #322b42;
   --dark-red: #660000;
   --extra-dark-red: #300;
+  --extra-dark-eggplant: #302b4288;
   --mid-green: #98c439;
   --mid-purple: #643784;
   --purple: #9643c6;
@@ -356,7 +357,7 @@ div.song.voting_registered div.vote_button {
 
 /* song hover */
 .song.voting_enabled:not(.voting_registered):not(.voting_clicked):hover {
-  background-color: var(--dark-eggplant);
+  background-color: var(--extra-dark-eggplant);
 }
 
 /* song link hover */
@@ -364,7 +365,15 @@ body .song .song_content a:hover {
   color: var(--green);
 }
 
-/* song voted */
+/* voting */
+.song:not(.voting_registered) .song_highlight {
+  background-color: var(--purple);
+}
+.song.voting_clicked {
+  background-color: var(--dark-eggplant);
+}
+
+/* voted */
 .song.voting_registered {
   background-color: var(--dark-eggplant);
 }
