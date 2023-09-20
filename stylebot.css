@@ -91,7 +91,7 @@ body.desktop #station_select a.station:hover {
   background-color: var(--dark-eggplant);
 }
 
-/* all the blue stuff is now greens stuff */
+/* all the blue stuff is now green stuff */
 .header,
 .menu,
 .menu_wrapper,
@@ -99,9 +99,7 @@ body.desktop #station_select a.station:hover {
 .menu_dropdown a,
 .hamburger_icon,
 #station_select a.station.selected_station,
-.background,
-.requester,
-.request_indicator {
+.background {
   background: var(--green);
 }
 
@@ -340,6 +338,25 @@ div.vote_button {
 /* vote button (voted) */
 div.song.voting_registered div.vote_button {
   background-color: var(--purple);
+}
+
+.requester,
+.request_indicator {
+  background-color: var(--green);
+}
+
+.request_indicator,
+.requester a {
+  color: black;
+}
+
+.your_request {
+  background-color: var(--orange);
+}
+
+.your_request,
+.your_request a {
+  color: black;
 }
 
 /* song hover */
