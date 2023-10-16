@@ -104,7 +104,7 @@ body.desktop #station_select a.station:hover {
   background-color: var(--dark-eggplant);
 }
 
-/* all the blue stuff is now greens stuff */
+/* all the blue stuff is now green stuff */
 .header,
 .menu,
 .menu_wrapper,
@@ -112,9 +112,7 @@ body.desktop #station_select a.station:hover {
 .menu_dropdown a,
 .hamburger_icon,
 #station_select a.station.selected_station,
-.background,
-.requester,
-.request_indicator {
+.background {
   background: var(--green);
 }
 
@@ -324,10 +322,16 @@ span[style*='color: #FFFF00'] {
   color: black;
 }
 
+/* language and yes/no selection */
 .multi_select span,
 .yes_no_yes,
 .yes_no_no {
   border-color: var(--purple);
+}
+
+/* language selection hover */
+.multi_select span.link:hover {
+  color: #ccc;
 }
 
 .yes_no_bar,
@@ -353,6 +357,25 @@ div.vote_button {
 /* vote button (voted) */
 div.song.voting_registered div.vote_button {
   background-color: var(--purple);
+}
+
+.requester,
+.request_indicator {
+  background-color: var(--green);
+}
+
+.request_indicator,
+.requester a {
+  color: black;
+}
+
+.your_request {
+  background-color: var(--orange);
+}
+
+.your_request,
+.your_request a {
+  color: black;
 }
 
 /* song hover */
@@ -442,6 +465,44 @@ a.url {
 /* Coming Up - Vote Now (2) */
 .progress[style*='translateY(354px);'] {
   transform: translateY(310px);
+}
+
+/* 
+Static pages:
+  - https://rainwave.cc/pages/playback_history 
+  - https://rainwave.cc/api4/
+
+There are no identifying classes or id on the body element, so match the negative.
+*/
+body:not(.desktop) h1 {
+  color: var(--green);
+  border-bottom-color: #999;
+}
+
+body:not(.desktop) a {
+  color: var(--yellow);
+}
+
+body:not(.desktop) a:hover {
+  background-color: inherit;
+}
+
+body:not(.desktop) th {
+  background-color: var(--mid-purple);
+}
+
+body:not(.desktop) tr:hover td {
+  background: var(--dark-eggplant);
+}
+
+body:not(.desktop) td {
+  border-bottom-color: #444;
+  max-width: 20em;
+}
+
+body:not(.desktop) pre {
+  background-color: var(--dark-eggplant);
+  border-color: var(--mid-purple);
 }
 ```
 
