@@ -15,7 +15,7 @@
     "rainwave"
   ],
   "homepage": "https://github.com/raineorshine/rainwave-monokai-classic-theme",
-  "license": "MIT",
+  "license": "ISC",
   "repository": "https://github.com/raineorshine/rainwave-monokai-classic-theme",
   "type": "module",
   "scripts": {
