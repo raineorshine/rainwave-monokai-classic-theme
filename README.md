@@ -8,7 +8,7 @@ Theme for [rainwave](https://github.com/rmcauley/rainwave) based on [Monokai Cla
 2. Click the Stylebot extension icon and choose "Open Stylebot".
 3. Copy and paste the following styles into Stylebot:
 
-<!-- TEMPLATE START: stylebot.css -->
+<!-- TEMPLATE START: src/style.css -->
 
 ```css
 :root {
@@ -506,4 +506,4 @@ body:not(.desktop) pre {
 }
 ```
 
-<!-- TEMPLATE END: stylebot.css -->
+<!-- TEMPLATE END: src/style.css -->
