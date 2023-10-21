@@ -19,9 +19,7 @@
   "repository": "https://github.com/raineorshine/rainwave-monokai-classic-theme",
   "type": "module",
   "scripts": {
-    "build": "npm run build:readme && npm run build:css",
-    "build:readme": "node scripts/inject.js README.md",
-    "build:css": "node scripts/build-style.js src/monokai-classic.css"
+    "build": "node scripts/build-style.js src/monokai-classic.css"
   },
   "devDependencies": {
     "prettier": "^3.0.2"
