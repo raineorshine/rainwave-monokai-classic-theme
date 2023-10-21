@@ -1,6 +1,6 @@
 {
   "name": "rainwave-monokai-classic-theme",
-  "description": "Theme for rainwave based on Monokai Classic.",
+  "description": "Theme for Rainwave based on Monokai Classic.",
   "version": "0.0.0",
   "private": true,
   "author": {
@@ -19,7 +19,9 @@
   "repository": "https://github.com/raineorshine/rainwave-monokai-classic-theme",
   "type": "module",
   "scripts": {
-    "build": "node scripts/inject.js README.md"
+    "build": "npm run build:readme && npm run build:css",
+    "build:readme": "node scripts/inject.js README.md",
+    "build:css": "node scripts/build-style.js src/monokai-classic.css"
   },
   "devDependencies": {
     "prettier": "^3.0.2"
