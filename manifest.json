@@ -3,10 +3,13 @@
   "name": "Rainwave Monokai Classic Theme",
   "description": "Theme for Rainwave based on Monokai Classic.",
   "version": "1.0",
+  "permissions": ["storage"],
+  "options_page": "src/options.html",
   "content_scripts": [
     {
       "matches": ["https://rainwave.cc/*"],
-      "css": ["build/style.css"]
+      "css": ["build/style.css"],
+      "js": ["build/index.js"]
     }
   ]
 }

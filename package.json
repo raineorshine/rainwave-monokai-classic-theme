@@ -19,11 +19,15 @@
   "repository": "https://github.com/raineorshine/rainwave-monokai-classic-theme",
   "type": "module",
   "scripts": {
-    "build": "node scripts/build-style.js src/monokai-classic.css",
-    "watch": "nodemon -w src/* -x npm run build"
+    "build": "npm run build:style && npm run build:ts",
+    "build:style": "node scripts/build-style.js src/monokai-classic.css",
+    "build:ts": "tsc",
+    "watch:style": "nodemon -w \"src/*\" -x npm run build:style",
+    "watch:ts": "tsc -w"
   },
   "devDependencies": {
     "nodemon": "^3.0.1",
-    "prettier": "^3.0.2"
+    "prettier": "^3.0.2",
+    "typescript": "^5.2.2"
   }
 }
