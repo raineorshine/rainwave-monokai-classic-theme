@@ -26,6 +26,7 @@
     "watch:ts": "tsc -w"
   },
   "devDependencies": {
+    "@types/chrome": "^0.0.248",
     "nodemon": "^3.0.1",
     "prettier": "^3.0.2",
     "typescript": "^5.2.2"
