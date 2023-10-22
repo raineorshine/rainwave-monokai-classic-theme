@@ -20,15 +20,16 @@
   "type": "module",
   "scripts": {
     "build": "npm run build:style && npm run build:ts",
-    "build:style": "node scripts/build-style.js src/monokai-classic.css",
+    "build:style": "rm build/style.css && sass src/style.scss build/style.css && node scripts/build-style.js",
     "build:ts": "tsc",
-    "watch:style": "nodemon -w \"src/*\" -x npm run build:style",
+    "watch:style": "nodemon -w src -e ts,js,json,scss -x npm run build:style",
     "watch:ts": "tsc -w"
   },
   "devDependencies": {
     "@types/chrome": "^0.0.248",
     "nodemon": "^3.0.1",
     "prettier": "^3.0.2",
+    "sass": "^1.69.4",
     "typescript": "^5.2.2"
   }
 }

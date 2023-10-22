@@ -87,6 +87,9 @@ const Settings = async () => {
     chrome.storage.sync.set({ theme }, () => {
       const el = e.target as HTMLElement
       document.querySelector('.setting_theme .selected')?.classList.remove('selected')
+      document.querySelector('body')?.classList.remove('theme-default')
+      document.querySelector('body')?.classList.remove('theme-monokai-classic')
+      document.querySelector('body')?.classList.add(`theme-${theme}`)
       el.classList.add('selected')
     })
   }
@@ -126,6 +129,11 @@ const Settings = async () => {
 }
 
 ;(async () => {
+  // set theme class on body element
+  const { theme } = await chrome.storage.sync.get('theme')
+  document.body.classList.add(`theme-${theme || 'monokai-classic'}`)
+
+  // inject settings
   const settingsLink = await waitFor(() => $x("//*[contains(@class, 'menu')]//a[text()='Settings']"))
   settingsLink?.addEventListener('click', async () => {
     const settingsContent = await waitFor(() => $('.modal_container.open .content.main'))
