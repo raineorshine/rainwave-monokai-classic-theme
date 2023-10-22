@@ -432,7 +432,7 @@ a.url {
 }
 
 /* Lost songs */
-/* Since the lost songs are in source order, we can only identify the second lost song by its translateY. */
+/* Since the lost songs may not match source order, we must select by translateY. Make sure to omit the trailing ";". */
 .song_lost[style*='translateY(140px)'] {
   margin-top: 5px;
 }
@@ -440,18 +440,16 @@ a.url {
   margin-top: -18px;
 }
 
-/* Coming up - Vote Now (1) */
-/* Shift up to compensate for smaller lost songs. Since .song_lost is not an ancestor, we have to select on the specific amount that the timelines are translated when lost songs are enabled. */
-.timeline_event.sched_next[style*='translateY(431px);'] {
-  transform: translateY(386px);
+/* Coming up - Vote Now */
+/* Shift up to compensate for smaller lost songs. Since there is no ancestor selector that indicates when lost songs are enabled, we must select on translateY. Make sure to omit the trailing ";". */
+.timeline_event.sched_next[style*='translateY(431px)'] {
+  transform: translateY(390px);
 }
-.timeline_event.sched_next[style*='translateY(778px);'] {
-  transform: translateY(733px);
+.timeline_event.sched_next[style*='translateY(778px)'] {
+  transform: translateY(737px);
 }
-
-/* Coming Up - Vote Now (2) */
-.progress[style*='translateY(354px);'] {
-  transform: translateY(310px);
+.progress[style*='translateY(354px)'] {
+  transform: translateY(312px);
 }
 
 /* 
