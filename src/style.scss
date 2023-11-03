@@ -283,12 +283,15 @@ body:not(.theme-default) {
     }
   }
 
-  a.obvious,
-  a:visited.obvious {
-    color: #999;
+  /* "View your..." links. */
+  a.obvious {
+    &,
+    &:visited {
+      color: #999;
+    }
   }
   a.obvious.obvious.obvious:hover {
-    color: var(--green);
+    color: white;
   }
 
   /* Donor */
