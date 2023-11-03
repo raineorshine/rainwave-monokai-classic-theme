@@ -276,6 +276,13 @@ body:not(.theme-default) {
  * PROFILE
  **********************************/
 
+  &.detail a:hover {
+    &,
+    &:visited {
+      color: white;
+    }
+  }
+
   a.obvious,
   a:visited.obvious {
     color: #999;
@@ -373,7 +380,10 @@ body:not(.theme-default) {
 
   /* song link hover */
   .song .song_content a:hover {
-    color: var(--green);
+    &,
+    &:visited {
+      color: var(--green);
+    }
   }
 
   /* voting */
