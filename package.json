@@ -9,7 +9,7 @@
     "url": "https://github.com/raineorshine"
   },
   "engines": {
-    "node": ">=14"
+    "node": ">=16"
   },
   "keywords": [
     "rainwave"
