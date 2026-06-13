@@ -1,8 +1,7 @@
 {
   "name": "rainwave-monokai-classic-theme",
   "description": "Theme for Rainwave based on Monokai Classic.",
-  "version": "0.0.0",
-  "private": true,
+  "version": "1.0.0",
   "author": {
     "name": "Raine Revere",
     "email": "raine@cybersemics.org",
