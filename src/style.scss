@@ -508,4 +508,54 @@ There are no identifying classes or id on the body element, so match the negativ
     background-color: var(--dark-eggplant);
     border-color: var(--mid-purple);
   }
+
+  /**********************************
+ * KEYBOARD SHORTCUTS HELP DIALOG
+ * Injected by the rainwave-keyboard-shortcuts extension.
+ * Overrides its default dark-blue styling to match Monokai Classic.
+ * The `body:not(.theme-default)` scope also raises specificity above the
+ * extension's injected <style> tag so these rules win.
+ **********************************/
+
+  #rw-shortcuts-help {
+    background: rgba(0, 0, 0, 0.7);
+
+    /* dark body like the Settings modal */
+    .rw-help-panel {
+      background: #1a1a1a;
+      color: #fff;
+      border: 1px solid #444;
+    }
+
+    /* green title bar like the Settings header, full-bleed to the panel edges */
+    .rw-help-header {
+      background: var(--green);
+      margin: -24px -28px 16px;
+      padding: 6px 28px;
+      border-radius: 8px 8px 0 0;
+    }
+    .rw-help-header h2 {
+      color: #000;
+    }
+
+    .rw-help-close {
+      color: #000;
+      margin-right: -10px;
+    }
+    .rw-help-close:hover {
+      color: #333;
+    }
+
+    /* section headers (Playback, Voting, etc.) like .setting_subheader */
+    h3 {
+      color: var(--orange);
+    }
+
+    /* keys like the bordered language/multi-select boxes in Settings */
+    kbd {
+      background: transparent;
+      border-color: var(--purple);
+      color: #fff;
+    }
+  }
 }
